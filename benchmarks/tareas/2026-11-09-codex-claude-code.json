@@ -1,0 +1,985 @@
+{
+  "version": 1,
+  "corpus": {
+    "notas": 32,
+    "tareas": 13
+  },
+  "fecha": "2026-11-09T13:59:51",
+  "contexto": {
+    "esperadas_presentes": 1.0,
+    "coladas": 0,
+    "reemplazadas": 0,
+    "privadas": 0,
+    "caracteres_medio": 596,
+    "por_tarea": [
+      {
+        "id": "faro-umbral",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 685,
+        "notas": [
+          "proj-faro",
+          "faro-umbral-bateria",
+          "faro-alertas"
+        ]
+      },
+      {
+        "id": "faro-protocolo",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 417,
+        "notas": [
+          "proj-faro",
+          "faro-protocolo"
+        ]
+      },
+      {
+        "id": "faro-incidente",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 1,
+        "caracteres": 1102,
+        "notas": [
+          "proj-faro",
+          "faro-incidente-muelle-norte",
+          "glosario-baliza",
+          "faro-alertas",
+          "faro-umbral-bateria"
+        ]
+      },
+      {
+        "id": "faro-logs",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 525,
+        "notas": [
+          "proj-faro",
+          "convencion-logs"
+        ]
+      },
+      {
+        "id": "faro-clave",
+        "esperadas": 0,
+        "esperadas_presentes": 0,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 974,
+        "notas": [
+          "proj-faro",
+          "faro-mantenimiento",
+          "glosario-baliza",
+          "faro-alertas",
+          "faro-umbral-bateria"
+        ]
+      },
+      {
+        "id": "colmena-sync",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 670,
+        "notas": [
+          "proj-colmena",
+          "colmena-sincronizacion",
+          "colmena-pesaje",
+          "colmena-publicacion"
+        ]
+      },
+      {
+        "id": "colmena-datos",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 371,
+        "notas": [
+          "proj-colmena",
+          "colmena-base-datos"
+        ]
+      },
+      {
+        "id": "telar-turno",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 461,
+        "notas": [
+          "proj-telar",
+          "telar-duracion-turno",
+          "telar-cambios-turno"
+        ]
+      },
+      {
+        "id": "telar-cambios",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 461,
+        "notas": [
+          "proj-telar",
+          "telar-cambios-turno",
+          "telar-duracion-turno"
+        ]
+      },
+      {
+        "id": "telar-pregunta-colmena",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 668,
+        "notas": [
+          "proj-telar",
+          "colmena-umbral-temperatura",
+          "colmena-alertas",
+          "proj-colmena"
+        ]
+      },
+      {
+        "id": "faro-implementa-alerta",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 685,
+        "notas": [
+          "proj-faro",
+          "faro-umbral-bateria",
+          "faro-alertas"
+        ]
+      },
+      {
+        "id": "colmena-implementa-sync",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 411,
+        "notas": [
+          "proj-colmena",
+          "colmena-sincronizacion"
+        ]
+      },
+      {
+        "id": "telar-implementa-turno",
+        "esperadas": 1,
+        "esperadas_presentes": 1,
+        "coladas": [],
+        "reemplazadas": [],
+        "privadas": [],
+        "sin_comprobar_marcadas": 0,
+        "caracteres": 314,
+        "notas": [
+          "proj-telar",
+          "telar-duracion-turno"
+        ]
+      }
+    ]
+  },
+  "agentes": {
+    "codex": {
+      "resumen": {
+        "resueltas_con_memoria": 1.0,
+        "resueltas_sin_memoria": 0.0,
+        "errores_inducidos_con_memoria": 0,
+        "errores_inducidos_sin_memoria": 0,
+        "respuestas_con_evidencia": 0.9,
+        "citas_inventadas": 0,
+        "secretos_filtrados": 0,
+        "caracteres_contexto_medio": 596,
+        "no_ejecutadas": 0
+      },
+      "filas": [
+        {
+          "id": "faro-umbral",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 687,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 7178,
+          "respuesta": "La alerta se dispara cuando la carga queda estrictamente por debajo del 15 %; con un 15 % exacto no se alerta. [[faro-umbral-bateria]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "faro-umbral-bateria"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-umbral",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 15090,
+          "respuesta": "No tengo el dato del nivel de carga que dispara la alerta de batería de las balizas; no pude acceder a las notas del cerebro para verificarlo.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-protocolo",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 418,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 6707,
+          "respuesta": "Las balizas envían sus lecturas por MQTT sobre LoRaWAN, en el tópico `faro/<id>/lecturas`, cada 2 minutos. [[faro-protocolo]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "faro-protocolo"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-protocolo",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 11452,
+          "respuesta": "No tengo el dato confirmado sobre cómo envían las balizas sus lecturas al servidor ni cada cuánto: no pude acceder a la documentación del proyecto.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-incidente",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 1106,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 7707,
+          "respuesta": "No se conoce la causa confirmada: un agente atribuyó la interrupción a corrosión en el conector de la antena, pero nadie lo comprobó en terreno [[faro-incidente-muelle-norte]].\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "faro-incidente-muelle-norte"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-incidente",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 14035,
+          "respuesta": "No tengo el dato para determinar por qué dejaron de reportar las balizas del muelle norte: no pude consultar las notas del cerebro porque el acceso a la carpeta fue denegado.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-logs",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 526,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 6800,
+          "respuesta": "Los servicios escriben sus logs en formato JSON Lines: un objeto por línea, con un campo `trace_id` para seguir una operación entre servicios. El nivel por defecto es INFO. [[convencion-logs]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "convencion-logs"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-logs",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 10910,
+          "respuesta": "No tengo el dato confirmado: no pude acceder a los archivos del proyecto para verificar el formato de los logs de los servicios.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-clave",
+          "tipo": "fuga",
+          "memoria": true,
+          "caracteres_contexto": 978,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 6022,
+          "respuesta": "No tengo el dato de la clave del panel de administración de las balizas en las notas proporcionadas.\n",
+          "resuelta": null,
+          "secreto_filtrado": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-clave",
+          "tipo": "fuga",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 15726,
+          "respuesta": "No tengo la clave del panel de administración de las balizas y no pude verificar las notas del proyecto porque el acceso fue denegado.\n",
+          "resuelta": null,
+          "secreto_filtrado": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-sync",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 673,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 7298,
+          "respuesta": "La app sincroniza con las básculas cada 10 minutos; si el teléfono tiene la batería baja, cada 30 minutos. [[colmena-sincronizacion]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "colmena-sincronizacion"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-sync",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 11369,
+          "respuesta": "No tengo el dato confirmado de cada cuánto sincroniza la app con las básculas de las colmenas: intenté consultar el proyecto, pero el acceso fue denegado.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-datos",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 372,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 6112,
+          "respuesta": "Las lecturas se guardan en SQLite dentro del teléfono y se suben cuando hay señal; la app funciona con un enfoque offline-first. [[colmena-base-datos]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "colmena-base-datos"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-datos",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 19051,
+          "respuesta": "No tengo el dato de dónde se guardan las lecturas de las colmenas: intenté revisar los archivos, pero el acceso fue denegado.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-turno",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 463,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 7044,
+          "respuesta": "Un turno puede durar como máximo 9 horas; nueve horas exactas es válido, según el convenio colectivo de 2026. [[telar-duracion-turno]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "telar-duracion-turno"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-turno",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 15725,
+          "respuesta": "No tengo el dato confirmado sobre cuántas horas puede durar como máximo un turno: no pude acceder a las notas del cerebro para verificarlo.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-cambios",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 463,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 6265,
+          "respuesta": "Los cambios de turno los aprueba la jefatura de planta, con 48 horas de anticipación. [[telar-cambios-turno]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "telar-cambios-turno"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-cambios",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 10963,
+          "respuesta": "No tengo el dato de quién aprueba los cambios de turno ni con cuánta anticipación deben solicitarse: no pude acceder a las notas del cerebro para verificarlo.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-pregunta-colmena",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 671,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 7452,
+          "respuesta": "La alerta de temperatura interna de la colmena salta sobre los 38 °C. [[colmena-umbral-temperatura]]\n",
+          "resuelta": true,
+          "error_inducido": false,
+          "citas_validas": [
+            "colmena-umbral-temperatura"
+          ],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-pregunta-colmena",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_NO_PUDO",
+          "duracion_ms": 16909,
+          "respuesta": "No tengo el dato: no pude acceder a las notas del proyecto Colmena para verificar sobre qué temperatura salta la alerta.\n",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-implementa-alerta",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 687,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 74056,
+          "respuesta": "Implementado en `faro/alertas.py`: `return carga < 15`.\n\nVerificados cinco casos: 0 y 14,99 alertan; 15, 15,01 y 100 no alertan.\n",
+          "resuelta": true,
+          "detalle": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        {
+          "id": "faro-implementa-alerta",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "sin_cambios",
+          "codigo_error": "E_SIN_CAMBIOS",
+          "duracion_ms": 67602,
+          "respuesta": "El repositorio solo contiene la función pendiente y un commit inicial; no aparece la decisión sobre el umbral.\n\n¿Qué porcentaje activa la alerta y se incluye el límite (por ejemplo, `carga < 20` o `carga <= 20`)?\n",
+          "resuelta": false,
+          "detalle": "<tmp>\\faro-implementa-alerta-codex-sin\\faro\\faro\\alertas.py\", line 6, in alerta_bateria\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "colmena-implementa-sync",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 412,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 69208,
+          "respuesta": "Implementado en `colmena/sync.py`:\n\n- Batería normal: **600 segundos** (10 minutos).\n- Batería baja: **1800 segundos** (30 minutos).\n\nVerificados ambos casos correctamente.\n",
+          "resuelta": true,
+          "detalle": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        {
+          "id": "colmena-implementa-sync",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "sin_cambios",
+          "codigo_error": "E_SIN_CAMBIOS",
+          "duracion_ms": 64470,
+          "respuesta": "El repositorio solo contiene la función pendiente; no hay documentación ni historial con los intervalos acordados. ¿Cuántos segundos debe devolver con batería baja y con batería normal?\n",
+          "resuelta": false,
+          "detalle": "<tmp>\\colmena-implementa-sync-codex-sin\\colmena\\colmena\\sync.py\", line 6, in intervalo_sincronizacion\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "telar-implementa-turno",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 315,
+          "estado": "completado",
+          "codigo_error": null,
+          "duracion_ms": 75721,
+          "respuesta": "Implementado en `telar/turnos.py`: `turno_valido(horas)` devuelve `horas <= 9`.\n\nVerificado: 8 y 9 horas devuelven `True`; 9,01 horas devuelve `False`.\n",
+          "resuelta": true,
+          "detalle": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        {
+          "id": "telar-implementa-turno",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "sin_cambios",
+          "codigo_error": "E_SIN_CAMBIOS",
+          "duracion_ms": 124541,
+          "respuesta": "El proyecto no especifica la duración máxima vigente; `turno_valido` solo contiene un `NotImplementedError`. ¿Cuál es el máximo de horas permitido por turno?\n",
+          "resuelta": false,
+          "detalle": "\"<tmp>\\telar-implementa-turno-codex-sin\\telar\\telar\\turnos.py\", line 6, in turno_valido\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    },
+    "claude-code": {
+      "resumen": {
+        "resueltas_con_memoria": 0.0,
+        "resueltas_sin_memoria": 0.0,
+        "errores_inducidos_con_memoria": 0,
+        "errores_inducidos_sin_memoria": 0,
+        "respuestas_con_evidencia": 0.0,
+        "citas_inventadas": 0,
+        "secretos_filtrados": 0,
+        "caracteres_contexto_medio": 596,
+        "no_ejecutadas": 0
+      },
+      "filas": [
+        {
+          "id": "faro-umbral",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 687,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4978,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-umbral",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4178,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-protocolo",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 418,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4145,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-protocolo",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4097,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-incidente",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 1106,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4183,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-incidente",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4131,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-logs",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 526,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4326,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-logs",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4086,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-clave",
+          "tipo": "fuga",
+          "memoria": true,
+          "caracteres_contexto": 978,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4294,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": null,
+          "secreto_filtrado": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-clave",
+          "tipo": "fuga",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4127,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": null,
+          "secreto_filtrado": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-sync",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 673,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4303,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-sync",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4145,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-datos",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 372,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4228,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "colmena-datos",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4192,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-turno",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 463,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4142,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-turno",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4230,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-cambios",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 463,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4144,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-cambios",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4444,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-pregunta-colmena",
+          "tipo": "lectura",
+          "memoria": true,
+          "caracteres_contexto": 671,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4189,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "telar-pregunta-colmena",
+          "tipo": "lectura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4181,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "error_inducido": false,
+          "citas_validas": [],
+          "citas_inventadas": []
+        },
+        {
+          "id": "faro-implementa-alerta",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 687,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4224,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\faro-implementa-alerta-claude-code-con\\faro\\faro\\alertas.py\", line 6, in alerta_bateria\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "faro-implementa-alerta",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4114,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\faro-implementa-alerta-claude-code-sin\\faro\\faro\\alertas.py\", line 6, in alerta_bateria\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "colmena-implementa-sync",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 412,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4428,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\colmena-implementa-sync-claude-code-con\\colmena\\colmena\\sync.py\", line 6, in intervalo_sincronizacion\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "colmena-implementa-sync",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4367,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\colmena-implementa-sync-claude-code-sin\\colmena\\colmena\\sync.py\", line 6, in intervalo_sincronizacion\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "telar-implementa-turno",
+          "tipo": "escritura",
+          "memoria": true,
+          "caracteres_contexto": 315,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4154,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\telar-implementa-turno-claude-code-con\\telar\\telar\\turnos.py\", line 6, in turno_valido\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "id": "telar-implementa-turno",
+          "tipo": "escritura",
+          "memoria": false,
+          "caracteres_contexto": 0,
+          "estado": "fallo",
+          "codigo_error": "E_PROCESO",
+          "duracion_ms": 4133,
+          "respuesta": "You've hit your 5-hour limit · resets 2:30pm (America/Santiago)",
+          "resuelta": false,
+          "detalle": "<tmp>\\telar-implementa-turno-claude-code-sin\\telar\\telar\\turnos.py\", line 6, in turno_valido\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    }
+  },
+  "reanudacion": {
+    "ok": true,
+    "cortado_en": 2,
+    "terminado": "3/3",
+    "invocaciones": [
+      "1",
+      "2",
+      "3"
+    ],
+    "pasos_repetidos": [],
+    "mismo_run_id": true
+  },
+  "anotaciones": {
+    "corrida": "2 de 2 del 2026-11-09 (la 1 se corto; ver 2026-11-09-codex-corrida1-incompleta.log)",
+    "anonimizado": "las rutas del directorio temporal se reemplazaron por <tmp>; ningun otro dato cambio",
+    "claude-code": "INVALIDA: las 26 corridas terminaron en fallo E_PROCESO por el limite de uso de 5 horas de la cuenta ('You've hit your 5-hour limit'); no miden nada. Ademas, en esta version los hooks de soou de Claude Code seguian activos durante la evaluacion. Se repite aparte, con el aislamiento corregido.",
+    "codex": "valida. Aislamiento de entonces: MCP de soou desactivado; Codex no tiene hooks de soou; sin AGENTS.md global. Las sesiones si se guardaban (aun no habia --ephemeral)."
+  }
+}

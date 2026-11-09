@@ -1,0 +1,53 @@
+# schema.yaml — reglas que guian como el LLM mantiene tu cerebro (LLM Wiki)
+# Basado en el patron de Andrej Karpathy. Editable: esto ES la configuracion.
+
+areas:
+  code:     Proyectos y decisiones tecnicas. Notas versionables junto al codigo.
+  personal: Conocimiento, aprendizajes, gente, ideas, salud, finanzas propias.
+  work:     Documentos, facturas, correos, papeleo, clientes.
+
+nota:
+  # cada nota = UN concepto. Frontmatter obligatorio:
+  frontmatter:
+    - name      # slug unico en kebab-case
+    - area      # code | personal | work
+    - type      # concept | decision | person | source | reference | event
+    - sources   # lista de rutas a sources/ que respaldan la nota (anclaje)
+    - pinned    # true = correccion humana, el LLM NO la sobreescribe
+    - updated   # fecha ISO
+  # procedencia y vigencia, opcionales (sin ellos la nota sigue valiendo: vigente):
+  procedencia:
+    - source_session  # ruta de la sesion de la que salio
+    - source_run      # id del run de soou, si salio de uno
+    - recorded_at     # cuando se registro (no se pisa al editar)
+    - status          # propuesta | vigente | reemplazada
+    - supersedes      # la nota que esta reemplaza
+    - superseded_by   # la nota que reemplazo a esta
+    - verification    # tests_passed | revisado | sin_verificar | afirmado_por_agente
+
+sintesis:
+  - Escribi una nota por concepto, no por documento.
+  - Enlaza liberalmente con [[nombre]]. Un [[x]] que aun no existe marca algo por escribir.
+  - Toda afirmacion factual debe poder anclarse a una fuente en 'sources'. Sin fuente,
+    marcala como "(sin verificar)".
+  - Preferi actualizar una nota existente antes que crear una duplicada.
+  - Nunca toques una nota con pinned: true; si la nueva fuente la contradice, crea una
+    nota-contradiccion aparte y enlazalas, no pises la correccion humana.
+  - La procedencia dice quien lo afirmo; la verificacion, que lo respalda. Lo que un
+    agente dijo es afirmado_por_agente; solo tests aprobados son tests_passed.
+  - Una decision nueva no borra la vieja: la nueva lleva supersedes, la vieja
+    status: reemplazada y superseded_by. La reemplazada sale del contexto.
+
+lint:
+  - enlaces rotos: [[x]] sin nota x.md
+  - huerfanas: notas que nadie enlaza (candidatas a integrar o borrar)
+  - placeholders: contienen "TODO:INGEST", fuente registrada pero sin sintetizar
+  - duplicados: nombres casi identicos
+  - vigencia: cadenas supersedes rotas, vigentes que otra nota reemplaza, dos
+    vigentes que reemplazan a la misma nota, ciclos y valores desconocidos
+
+contradicciones:
+  # las notas que "coinciden entre si" pueden estar ambas desactualizadas.
+  # ante conflicto entre fuentes, NO infieras en silencio: registra ambas versiones
+  # con su fuente y fecha, y deja que el humano resuelva.
+  politica: registrar-no-inferir

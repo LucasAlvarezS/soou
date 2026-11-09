@@ -1,0 +1,64 @@
+# ==================================================================
+# DATOS PERSONALES - NUNCA al repo (el repo es el MOTOR, no el cerebro).
+# Los ejemplos genericos viven en examples/. Tu brain real queda local.
+# Rutas ancladas con "/" = solo la raiz (no afecta tests/fixtures/wiki/).
+# NOTA: git NO admite comentarios en linea; cada patron va solo.
+# ==================================================================
+
+# Tu cerebro real (notas personales)
+/wiki/
+# Fuentes crudas ingeridas
+/sources/
+# Transcripciones capturadas (L0) + logs de destilacion
+/sessions/
+# Notas de trabajo y documentos de mejora: el repo publicado es la BASE
+# limpia para trabajar, no el cuaderno de analisis del proyecto.
+/interno/
+
+# Material retirado por compact (recuperable, no va al repo)
+/archivo/
+# Worktrees y trazas del harness (carpeta unica de runs)
+/runs/
+# Consultas de evaluacion del retrieval sobre TU cerebro (datos personales)
+/eval/
+# Config local (plantilla: soou.config.example.json)
+/soou.config.json
+# Manifiestos de agentes propios (agents/NOMBRE.json)
+/agents/
+.env
+
+# --- Indice derivado / cache (reconstruible con `soou.py reindex`) ---
+/soou.db
+/soou.db-*
+/.index.json
+/.index.*.tmp
+/router-log.jsonl
+/.soou-heartbeat.json
+/graph.html
+/.distill.lock
+tests/*.test.db
+tests/.index.test.json
+
+# --- Python / SO ---
+__pycache__/
+*.pyc
+.DS_Store
+
+# --- Legado (Neo4j/brain, ya removido) ---
+/brain.db
+/brain.db-*
+/brain.cypher
+
+# Tooling de diseno local (contexto personal)
+/.impeccable.md
+/.impeccable/
+
+# Estado derivado del auto-sync
+/last-sync.json
+/soou_doctor_report.txt
+/brain_doctor_report.txt
+/.distill-lite.lock
+
+# Ledger de budget (válvula del Cost Router; conteo de runs por día)
+/.soou-budget.json
+/.soou-plan.json

@@ -1,0 +1,19 @@
+{
+  "_nota": "Consultas con la(s) nota(s) correcta(s) sobre tests/fixtures/wiki. 'lexica' = comparte palabras con la nota; 'parafrasis' = sinonimos o palabras que la nota NO contiene (mide lo que BM25/TF-IDF no puede).",
+  "consultas": [
+    {"q": "wind turbine inspection pipeline", "relevantes": ["alpha"], "tipo": "lexica"},
+    {"q": "solar panel inspection", "relevantes": ["beta"], "tipo": "lexica"},
+    {"q": "naval hull cascos", "relevantes": ["gamma"], "tipo": "lexica"},
+    {"q": "postgres ports 5432", "relevantes": ["epsilon"], "tipo": "lexica"},
+    {"q": "blade defect yolo", "relevantes": ["delta"], "tipo": "lexica"},
+    {"q": "bm25 rrf ranking", "relevantes": ["zeta"], "tipo": "lexica"},
+    {"q": "imagenes de palas de aerogenerador", "relevantes": ["alpha", "delta"], "tipo": "lexica"},
+    {"q": "termografia de paneles fotovoltaicos", "relevantes": ["beta"], "tipo": "lexica"},
+    {"q": "inspeccion de barcos con vehiculo submarino", "relevantes": ["gamma"], "tipo": "parafrasis"},
+    {"q": "fallas en las aspas del molino", "relevantes": ["delta"], "tipo": "parafrasis"},
+    {"q": "motor de busqueda hibrido", "relevantes": ["zeta"], "tipo": "parafrasis"},
+    {"q": "configuracion de la base de datos", "relevantes": ["epsilon"], "tipo": "parafrasis"},
+    {"q": "energia renovable fotovoltaica con drones", "relevantes": ["beta"], "tipo": "parafrasis"},
+    {"q": "aerogeneradores", "relevantes": ["alpha", "delta"], "tipo": "parafrasis"}
+  ]
+}

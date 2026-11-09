@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "soou"
+dynamic = ["version"]
+description = "A personal LLM wiki that remembers your agent sessions, plus a harness that routes work across the coding agents you already use."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Lucas Alvarez Soto" }]
+requires-python = ">=3.11"
+# El nucleo es solo libreria estandar. pywebview es opcional (ventana de escritorio).
+dependencies = []
+keywords = ["llm", "memory", "second-brain", "mcp", "agents", "claude-code", "codex", "wiki"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development",
+  "Topic :: Text Processing :: Indexing",
+]
+
+[project.optional-dependencies]
+desktop = ["pywebview>=5"]
+
+[project.scripts]
+soou = "soou:main"
+soou-mcp = "soou_mcp:main"
+
+[project.urls]
+Homepage = "https://github.com/LucasAlvarezS/soou"
+Issues = "https://github.com/LucasAlvarezS/soou/issues"
+Changelog = "https://github.com/LucasAlvarezS/soou/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "soou.py"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["soou.py", "soou_mcp.py", "soou_core"]
+
+# Los assets van a soou_data/ (no a la raiz de site-packages). soou.py los busca
+# ahi cuando no corre desde un checkout del repo.
+[tool.hatch.build.targets.wheel.force-include]
+"ui" = "soou_data/ui"
+"examples" = "soou_data/examples"
+"schema.yaml" = "soou_data/schema.yaml"
+"agentes-cerebro.md" = "soou_data/agentes-cerebro.md"
+"soou.config.example.json" = "soou_data/soou.config.example.json"
+
+[tool.hatch.build.targets.sdist]
+include = ["soou.py", "soou_mcp.py", "soou_core/", "ui/", "examples/", "tests/", "schema.yaml",
+           "agentes-cerebro.md", "AGENTS.md", "soou.config.example.json", "README*.md", "CONTRIBUTING*.md",
+           "CHANGELOG.md", "SECURITY.md", "LICENSE"]

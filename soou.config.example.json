@@ -1,0 +1,61 @@
+{
+  "_nota": "Plantilla. Copiala a soou.config.json (gitignored) y ajustala. Hay CUATRO formas de conectar un agente, y ninguna requiere tocar codigo. Cada agente se activa solo si esta disponible: una CLI cuando esta en el PATH, una API cuando existe su variable de entorno. Comproba con: python soou.py agents",
+  "profile": "single",
+  "profiles": {
+    "single":     { "multiuser": false, "parallel_agents": false, "budget_per_day": null },
+    "team":       { "multiuser": true,  "parallel_agents": true,  "budget_per_day": 20 },
+    "enterprise": { "multiuser": true,  "parallel_agents": true,  "budget_per_day": 100 }
+  },
+  "override": {
+    "_nota": "Ajuste puntual sin cambiar de perfil. parallel_agents habilita verificacion cruzada dual-agent; budget_per_day acota el gasto en runs por dia.",
+    "parallel_agents": true
+  },
+
+  "agents": [
+    { "_nota": "1) Tipos integrados.",
+      "name": "claude-code", "type": "claude" },
+    { "name": "codex", "type": "codex" },
+
+    { "_nota": "2) Receta conocida: el tipo es el nombre de la CLI. El registro cubre aider, amazon-q, amp, continue, copilot, crush, cursor-agent, droid, gemini, goose, opencode, openhands, qwen.",
+      "name": "copilot", "type": "copilot" },
+
+    { "_nota": "3) Cualquier binario: {prompt} se sustituye por la tarea.",
+      "name": "mi-cli", "type": "cmd", "command": "mi-cli", "args": ["run", "{prompt}"] },
+
+    { "_nota": "4) Cualquier API compatible con OpenAI. No escribe en disco: sirve para lectura, plan y verificacion cruzada. Verifica el id de modelo contra la doc del proveedor.",
+      "name": "groq", "type": "http",
+      "url": "https://api.groq.com/openai/v1/chat/completions",
+      "model": "llama-3.3-70b-versatile",
+      "api_key_env": "GROQ_API_KEY",
+      "system": "Sos un agente de analisis y verificacion. No podes escribir archivos." }
+  ],
+
+  "routing": {
+    "_nota": "Orden de PREFERENCIA por nivel, no exclusion: si el primero no esta, cae al siguiente. Eje costo: barato arriba en lo trivial, frontier arriba en lo complejo. En escritura los agentes http se descartan solos.",
+    "trivial":             ["groq", "codex", "claude-code"],
+    "contextual":          ["groq", "codex", "claude-code"],
+    "complex":             ["claude-code", "codex"],
+    "ambiguous/high-risk": ["claude-code", "codex"]
+  },
+
+  "models": {
+    "_nota": "Modelo por agente y nivel; lo que falte usa el default del agente.",
+    "claude-code": { "trivial": "haiku", "contextual": "sonnet", "complex": "opus" }
+  },
+  "reasoning": {
+    "_nota": "Esfuerzo de razonamiento por nivel; hoy lo consume Codex.",
+    "codex": { "trivial": "low", "complex": "high" }
+  },
+
+  "storage": {
+    "_nota": "Disco acotado. runs_dir = carpeta UNICA de worktrees y trazas del harness (default: soou/runs). session_max_chars = tope por sesion L0; si se pasa se conserva el inicio y el final."
+  },
+  "runs_dir": null,
+  "session_max_chars": 40000,
+
+  "verticals": {},
+  "core_markers": [],
+  "_nota_captura": "Los cosechadores leen carpetas globales de la maquina (~/.codex/sessions y ~/.claude/projects). Por defecto solo entra al cerebro lo que ocurrio bajo tu carpeta personal. capture_roots la reemplaza por una lista blanca explicita; exclude_projects descarta por nombre de carpeta.",
+  "capture_roots": [],
+  "exclude_projects": []
+}

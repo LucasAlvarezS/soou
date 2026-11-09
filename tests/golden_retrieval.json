@@ -1,0 +1,46 @@
+{
+  "wind turbine pipeline": [
+    [
+      "alpha",
+      0.038333
+    ],
+    [
+      "delta",
+      0.032787
+    ]
+  ],
+  "solar panel inspection": [
+    [
+      "beta",
+      0.038333
+    ],
+    [
+      "alpha",
+      0.037705
+    ]
+  ],
+  "naval hull cascos": [
+    [
+      "gamma",
+      0.038333
+    ]
+  ],
+  "retrieval bm25 ranking rrf": [
+    [
+      "zeta",
+      0.038333
+    ]
+  ],
+  "postgres ports": [
+    [
+      "epsilon",
+      0.038333
+    ]
+  ],
+  "blade defect yolo": [
+    [
+      "delta",
+      0.033333
+    ]
+  ]
+}

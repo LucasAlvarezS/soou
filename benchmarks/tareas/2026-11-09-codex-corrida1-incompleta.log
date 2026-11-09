@@ -1,0 +1,34 @@
+# Corrida 1 de eval --tareas, 2026-11-09 (Codex y Claude Code pedidos).
+# Se corto tras las 26 corridas de Codex por un error del evaluador: FileExistsError al
+# crear el workspace de Claude Code (el mismo directorio que el de Codex). El resultado
+# no llego a guardarse; esto es la salida de consola tal cual, sin la traza de Python.
+# Diferencia con la corrida 2: colmena-implementa-sync con memoria fallo aqui (la
+# prueba oculta no paso) y paso en la 2. Diagnostico en README.md.
+
+[eval] 52 corridas reales (13 tareas x con/sin memoria x 2 agente(s)); gastan cupo de tus agentes.
+  codex        faro-umbral                con memoria: OK (completado, 10 s)
+  codex        faro-umbral                sin memoria: no (fallo, 13 s)
+  codex        faro-protocolo             con memoria: OK (completado, 6 s)
+  codex        faro-protocolo             sin memoria: no (fallo, 13 s)
+  codex        faro-incidente             con memoria: OK (completado, 7 s)
+  codex        faro-incidente             sin memoria: no (fallo, 16 s)
+  codex        faro-logs                  con memoria: OK (completado, 8 s)
+  codex        faro-logs                  sin memoria: no (fallo, 11 s)
+  codex        faro-clave                 con memoria: - (completado, 7 s)
+  codex        faro-clave                 sin memoria: - (fallo, 18 s)
+  codex        colmena-sync               con memoria: OK (completado, 6 s)
+  codex        colmena-sync               sin memoria: no (fallo, 15 s)
+  codex        colmena-datos              con memoria: OK (completado, 6 s)
+  codex        colmena-datos              sin memoria: no (fallo, 12 s)
+  codex        telar-turno                con memoria: OK (completado, 7 s)
+  codex        telar-turno                sin memoria: no (fallo, 17 s)
+  codex        telar-cambios              con memoria: OK (completado, 7 s)
+  codex        telar-cambios              sin memoria: no (fallo, 16 s)
+  codex        telar-pregunta-colmena     con memoria: OK (completado, 7 s)
+  codex        telar-pregunta-colmena     sin memoria: no (fallo, 18 s)
+  codex        faro-implementa-alerta     con memoria: OK (completado, 51 s)
+  codex        faro-implementa-alerta     sin memoria: no (sin_cambios, 65 s)
+  codex        colmena-implementa-sync    con memoria: no (completado, 46 s)
+  codex        colmena-implementa-sync    sin memoria: no (sin_cambios, 64 s)
+  codex        telar-implementa-turno     con memoria: OK (completado, 48 s)
+  codex        telar-implementa-turno     sin memoria: no (sin_cambios, 70 s)
