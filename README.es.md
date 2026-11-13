@@ -163,6 +163,9 @@ que trabajan en el código de soou.)
 El Nivel A es determinista y gratuito: resumen extractivo, frases clave y
 autoenlazado contra el grafo existente, sin gastar tokens. El Nivel B es la
 síntesis conceptual, y corre con el agente de escritura que esté disponible.
+Sigue el orden de routing de `trivial` y usa el modelo de
+`models.<agente>.distill`; si falta, el de `trivial`; si faltan ambos, el
+default del agente. Nunca usa el modelo de `complex`.
 
 `compact` es la contraparte, y lo único del sistema que quita material. Retira la
 nota de sesión cuando su transcripción ya fue sintetizada, archiva los crudos ya

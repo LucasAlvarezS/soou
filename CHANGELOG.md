@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed: AI distillation uses the cheapest configured model
+
+- Level B (`distill`, `sync --deep`, the SessionEnd hook) no longer runs at the
+  `complex` level. It follows the `trivial` routing order and uses
+  `models.<agent>.distill`; without it, the `trivial` model; without either, the
+  agent's default. `reasoning.<agent>.distill` works the same way. `persona`
+  still runs at `complex`.
+
 ### Added: measuring the value of memory
 
 - `soou eval --tareas` runs a fixed, fictional corpus (`tests/fixtures/corpus/`:

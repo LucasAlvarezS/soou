@@ -92,6 +92,22 @@ def _reasoning_for(agent_name, level):
     return m.get(level)
 
 
+def _para_destilado(tabla: str, agent_name):
+    m = (load_config().get(tabla) or {}).get(agent_name) or {}
+    return m.get("distill") or m.get("trivial")
+
+
+def modelo_destilado(agent_name):
+    """Modelo del Nivel B: `models.<agente>.distill`; si falta, el de `trivial`
+    (el mas barato configurado); si tampoco, None = el default del agente.
+    Nunca mira `complex`: el destilado corre solo y seguido, no paga frontier."""
+    return _para_destilado("models", agent_name)
+
+
+def reasoning_destilado(agent_name):
+    return _para_destilado("reasoning", agent_name)
+
+
 def _budget_today() -> int:
     """Runs de agente consumidos hoy (0 si no hay ledger o falla la lectura)."""
     try:

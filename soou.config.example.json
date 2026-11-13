@@ -39,8 +39,8 @@
   },
 
   "models": {
-    "_nota": "Modelo por agente y nivel; lo que falte usa el default del agente.",
-    "claude-code": { "trivial": "haiku", "contextual": "sonnet", "complex": "opus" }
+    "_nota": "Modelo por agente y nivel; lo que falte usa el default del agente. 'distill' es el modelo del destilado con IA (sync --deep, distill): si falta se usa el de 'trivial'; nunca el de 'complex'.",
+    "claude-code": { "distill": "haiku", "trivial": "haiku", "contextual": "sonnet", "complex": "opus" }
   },
   "reasoning": {
     "_nota": "Esfuerzo de razonamiento por nivel; hoy lo consume Codex.",

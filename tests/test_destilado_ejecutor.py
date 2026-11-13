@@ -139,6 +139,71 @@ class DestiladoPorEjecutorTests(_Entorno):
         self.assertEqual([t["soou.mode"] for t in self._trazas()], ["persona", "persona"])
 
 
+class ModeloDelDestiladoTests(_Entorno):
+    """El Nivel B usa el modelo mas barato configurado, nunca el de `complex`."""
+
+    MODELOS = {"claude-code": {"distill": "haiku", "trivial": "sonnet", "complex": "opus"},
+               "codex": {"trivial": "mini", "complex": "sol"},
+               "otro": {"complex": "caro"}}
+    REASONING = {"codex": {"trivial": "low", "complex": "high"}}
+
+    def _con_modelos(self, agentes_, routing=None):
+        """Como _entorno, pero con la resolucion real de modelos sobre una config falsa."""
+        cfg = {"routing": routing or {}, "models": self.MODELOS, "reasoning": self.REASONING}
+        pila = self._entorno(agentes_)
+        pila.enter_context(patch.object(config, "load_config", return_value=cfg))
+        pila.enter_context(patch.object(
+            config, "_model_for",
+            side_effect=lambda a, n: (cfg["models"].get(a) or {}).get(n)))
+        pila.enter_context(patch.object(
+            config, "_reasoning_for",
+            side_effect=lambda a, n: (cfg["reasoning"].get(a) or {}).get(n)))
+        return pila
+
+    def _destilar(self, nombre, routing=None, otros=()):
+        a = _Agente(nombre, {"ok": True, "output": "ok"},
+                    al_correr=lambda: self.pendientes.clear())
+        with self._con_modelos([a, *otros], routing):
+            ejecutor.cmd_distill(argparse.Namespace(limit=0))
+        return a
+
+    def test_usa_el_modelo_distill_si_esta(self):
+        a = self._destilar("claude-code")
+        self.assertEqual(a.llamadas[0]["model"], "haiku")
+
+    def test_sin_distill_cae_al_de_trivial(self):
+        a = self._destilar("codex")
+        self.assertEqual(a.llamadas[0]["model"], "mini")
+        self.assertEqual(a.llamadas[0]["reasoning"], "low")
+
+    def test_nunca_usa_el_modelo_de_complex(self):
+        a = self._destilar("otro")      # solo tiene modelo para complex
+        self.assertIsNone(a.llamadas[0]["model"], "sin distill ni trivial: default del agente")
+        for nombre in ("claude-code", "codex"):
+            self.pendientes = [self.tmp / "s1.md"]
+            b = self._destilar(nombre)
+            self.assertNotIn(b.llamadas[0]["model"], ("opus", "sol"))
+            self.assertNotEqual(b.llamadas[0]["reasoning"], "high")
+
+    def test_el_orden_sigue_el_routing_trivial(self):
+        caro = _Agente("claude-code", {"ok": True, "output": "ok"})
+        routing = {"trivial": ["codex", "claude-code"], "complex": ["claude-code", "codex"]}
+        barato = self._destilar("codex", routing, otros=[caro])
+        self.assertEqual((len(barato.llamadas), len(caro.llamadas)), (1, 0))
+
+    def test_la_traza_registra_nivel_trivial_y_el_modelo_real(self):
+        self._destilar("claude-code")
+        t = self._trazas()[-1]
+        self.assertEqual((t["soou.level"], t["gen_ai.request.model"]), ("trivial", "haiku"))
+
+    def test_persona_sigue_en_complex(self):
+        a = _Agente("claude-code", {"ok": True, "output": "Persona escrita."})
+        with self._con_modelos([a]):
+            ejecutor.cmd_persona(argparse.Namespace())
+        self.assertEqual(a.llamadas[0]["model"], "opus")
+        self.assertEqual(self._trazas()[-1]["soou.level"], "complex")
+
+
 class PlanificadorTests(_Entorno):
     """El planificador de run --plan tambien pasa por el ejecutor."""
 

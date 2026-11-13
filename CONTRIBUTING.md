@@ -118,7 +118,10 @@ The memory layer never imports the top layer. When distillation needs an agent
 (`sync --deep`, `persona`), the CLI passes it an `ejecutor.InvocadorDestilado`:
 the executor makes the calls and the distill module only builds the batch and
 reads the result. Distillation edits the real wiki and its work is additive, so
-those attempts keep partial work instead of returning to a checkpoint. A test
+those attempts keep partial work instead of returning to a checkpoint.
+Distillation runs at the `trivial` level with the model from
+`config.modelo_destilado` (`models.<agent>.distill`, else `trivial`); `persona`
+stays at `complex`. A test
 (`tests/test_destilado_ejecutor.py`) checks the imports.
 
 Two rules keep the tests honest:

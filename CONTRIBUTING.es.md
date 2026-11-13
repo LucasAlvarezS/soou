@@ -120,8 +120,10 @@ un agente (`sync --deep`, `persona`), la CLI le pasa un
 `ejecutor.InvocadorDestilado`: el ejecutor hace las llamadas y el módulo de
 destilado solo arma el lote y lee el resultado. El destilado edita el wiki real
 y su trabajo es aditivo, así que esos intentos conservan lo parcial en vez de
-volver a un checkpoint. Un test (`tests/test_destilado_ejecutor.py`) revisa los
-imports.
+volver a un checkpoint. El destilado corre en el nivel `trivial` con el modelo
+de `config.modelo_destilado` (`models.<agente>.distill`, si falta el de
+`trivial`); `persona` sigue en `complex`. Un test
+(`tests/test_destilado_ejecutor.py`) revisa los imports.
 
 Dos reglas mantienen honestas a las pruebas:
 

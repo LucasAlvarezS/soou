@@ -339,8 +339,9 @@ def _distill_run(args):
         pend = pend[:limit]
 
     # NIVEL B: las llamadas a agentes las coordina el ejecutor (capa superior), que
-    # pasa aqui como `invocador`: elige agentes de escritura por routing 'complex' e
-    # historial, reserva presupuesto, verifica y traza cada intento. Este modulo solo
+    # pasa aqui como `invocador`: elige agentes de escritura por routing 'trivial' e
+    # historial, usa el modelo mas barato configurado (models.<agente>.distill, si
+    # falta el de 'trivial'), reserva presupuesto, verifica y traza cada intento. Este modulo solo
     # arma el lote, interpreta el resultado y decide el fallback. Corre en cwd=ROOT
     # (edita el wiki real, aditivo/conservador, sin worktree). Sin invocador o sin
     # agente de escritura -> queda solo el Nivel A.
@@ -366,7 +367,7 @@ def _distill_run(args):
             break
         prompt = build_distill_prompt(current, indice.para_agentes(indice.load_notes()))
         n_lote = len(current)
-        # El ejecutor reserva el cupo, anuncia y aplica el Cost Router (nivel 'complex').
+        # El ejecutor reserva el cupo, anuncia y fija el modelo barato del destilado.
         res = invocador.invocar(
             agent, prompt, intento=index, operacion="distill",
             al_empezar=lambda ad: print(f"[distill] Nivel B: destilando {n_lote} sesion(es) "
@@ -433,7 +434,7 @@ def cmd_persona(args):
         f"Material del cerebro ({len(selected)} notas):\n{material}"
     )
     invocador = getattr(args, "invocador", None)
-    if invocador is None or not invocador.candidatos():
+    if invocador is None or not invocador.candidatos("persona"):
         print("[persona] sin agente de escritura disponible; no se genero la nota.")
         return
     res, intentos = invocador.ejecutar(

@@ -164,6 +164,9 @@ agents working on soou's own code.)
 Level A is deterministic and free: extractive summary, key phrases and
 auto-linking against the existing graph, no tokens spent. Level B is the
 conceptual synthesis, and it runs with whichever writing agent is available.
+It follows the `trivial` routing order and uses the model set in
+`models.<agent>.distill`; without it, the `trivial` model; without either, the
+agent's own default. It never uses the `complex` model.
 
 `compact` is the counterpart, and the only thing in the system that removes
 material. It retires a session note once its transcript has been synthesised,

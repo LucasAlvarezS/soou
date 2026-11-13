@@ -334,19 +334,31 @@ class InvocadorDestilado:
     un intento fallido puede haber dejado notas utiles, asi que no hay checkpoint
     ni vuelta atras (conservar_parcial)."""
 
-    nivel = "complex"   # la sintesis conceptual usa el modelo frontier configurado
+    nivel = "complex"             # persona: sintesis unica, con el modelo frontier
+    nivel_destilado = "trivial"   # distill: corre solo y seguido -> lo mas barato
 
     def __init__(self, run_id: str | None = None):
         self.run_id = run_id or nuevo_run_id()
 
-    def candidatos(self) -> list:
-        return candidatos(self.nivel, "escribir")
+    def _nivel(self, operacion: str) -> str:
+        return self.nivel_destilado if operacion == "distill" else self.nivel
 
-    def _req(self, prompt: str, operacion: str, timeout: int):
+    def candidatos(self, operacion: str = "distill") -> list:
+        return candidatos(self._nivel(operacion), "escribir")
+
+    def _req(self, prompt: str, operacion: str, timeout: int, agente=None):
+        """`agente` solo importa al destilar: su modelo se fija aqui
+        (`models.<agente>.distill`, si falta el de `trivial`) y `intentar` lo
+        respeta, asi el Nivel B nunca hereda el modelo de otro nivel."""
+        modelo = reasoning = None
+        if operacion == "distill" and agente is not None:
+            modelo = config.modelo_destilado(agente.name)
+            reasoning = config.reasoning_destilado(agente.name)
         return contrato.TaskRequest(tarea=prompt, workspace=str(rutas.ROOT), modo="escribir",
                                     exige_cambios=False, timeout=timeout, run_id=self.run_id,
-                                    paso=operacion, nivel=self.nivel, operacion=operacion,
-                                    conservar_parcial=True)
+                                    paso=operacion, nivel=self._nivel(operacion),
+                                    operacion=operacion, conservar_parcial=True,
+                                    modelo=modelo, reasoning=reasoning)
 
     def invocar(self, agente, prompt: str, intento: int = 0, operacion: str = "distill",
                 timeout: int = 1200, al_empezar=None):
@@ -356,14 +368,14 @@ class InvocadorDestilado:
             return _sin_presupuesto(agente, intento)
         if al_empezar:
             al_empezar(agente)
-        return intentar(agente, self._req(prompt, operacion, timeout), intento=intento,
-                        reservado=True)
+        return intentar(agente, self._req(prompt, operacion, timeout, agente),
+                        intento=intento, reservado=True)
 
     def ejecutar(self, prompt: str, operacion: str, timeout: int = 1200,
                  al_empezar=None, al_fallar=None):
         """Prompt fijo con fallback: (resultado_util | None, intentos)."""
         return ejecutar_con_fallback(self._req(prompt, operacion, timeout),
-                                     self.candidatos(), al_empezar, al_fallar)
+                                     self.candidatos(operacion), al_empezar, al_fallar)
 
 
 def _con_invocador(fn):
