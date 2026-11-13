@@ -475,14 +475,14 @@ def _embed_texts(texts: list) -> list | None:
     return [cache.get(key(t)) for t in texts]
 
 
-def vector_scores(query, notes, docs) -> tuple:
+def vector_scores(query, notes, docs, df=None) -> tuple:
     """Stream vectorial: embeddings semanticos si hay backend, si no TF-IDF cosine.
     Devuelve (scores, etiqueta)."""
     vecs = _embed_texts([query] + [n["name"] + " " + n["body"][:2000] for n in notes])
     if vecs and all(v is not None for v in vecs):
         qv = vecs[0]
         return [texto._cosine(qv, dv) for dv in vecs[1:]], f"embeddings:{embed_backend()}"
-    return texto.tfidf_cosine(texto.tokenize(query), docs), "tfidf"
+    return texto.tfidf_cosine(texto.tokenize(query), docs, df=df), "tfidf"
 
 
 def rank_notes(query: str, notes: list, k: int = 60) -> tuple:
@@ -492,8 +492,9 @@ def rank_notes(query: str, notes: list, k: int = 60) -> tuple:
     qt = texto.tokenize(query)
     if not qt:
         return [], "tfidf"
-    bm = texto.bm25_scores(qt, docs)
-    vec, label = vector_scores(query, notes, docs)
+    df = texto._df(docs)                 # una sola pasada: lo usan los dos streams
+    bm = texto.bm25_scores(qt, docs, df=df)
+    vec, label = vector_scores(query, notes, docs, df=df)
     rb, rv = texto._ranks(bm), texto._ranks(vec)
     fused = []
     for i, n in enumerate(notes):

@@ -76,11 +76,12 @@ def _df(docs: list) -> dict:
     return df
 
 
-def bm25_scores(qterms, docs, k1=1.5, b=0.75) -> list:
+def bm25_scores(qterms, docs, k1=1.5, b=0.75, df=None) -> list:
+    """`df` opcional: el llamador que tambien pide tfidf_cosine lo calcula una vez."""
     N = len(docs)
     if not N:
         return []
-    df = _df(docs)
+    df = _df(docs) if df is None else df
     avgdl = sum(len(d) for d in docs) / N
     out = []
     for d in docs:
@@ -110,12 +111,14 @@ def _tfidf_vec(tokens, df, N):
     return {t: w / norm for t, w in v.items()}
 
 
-def tfidf_cosine(qterms, docs) -> list:
+def tfidf_cosine(qterms, docs, df=None) -> list:
     N = len(docs)
     if not N:
         return []
-    df = _df(docs)
+    df = _df(docs) if df is None else df
     qv = _tfidf_vec(qterms, df, N)
+    if not qv:                  # ningun termino de la consulta esta en el corpus
+        return [0.0] * N
     out = []
     for d in docs:
         dv = _tfidf_vec(d, df, N)

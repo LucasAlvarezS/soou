@@ -5,7 +5,6 @@ soou.py lo re-exporta; dentro de soou_core se usa como `registro.nombre`."""
 import json
 import os
 import shutil
-import urllib.request
 from soou_core import acp, agentes, config, consola, indice, rutas
 
 
@@ -53,6 +52,7 @@ class HttpAdapter(agentes.AgentAdapter):
             + [{"role": "user", "content": prompt}]
         selected_model = model or self._model
         body = json.dumps({"model": selected_model, "messages": msgs, "stream": False}).encode()
+        import urllib.request   # perezoso: solo los agentes http lo usan
         req = urllib.request.Request(
             self._url, data=body, method="POST",
             headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})

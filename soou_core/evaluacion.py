@@ -32,7 +32,6 @@ import tempfile
 import time
 from contextlib import ExitStack
 from pathlib import Path
-from unittest import mock
 
 from soou_core import (config, contexto, contrato, ejecutor, harness, indice, registro, rutas,
                        sesiones, texto, vigencia)
@@ -322,6 +321,7 @@ def medir_reanudacion(base: Path) -> dict:
 
     cfg = {"routing": {}, "brain_context": False, "caps": {}, "verticals": {}}
     previo = os.getcwd()
+    from unittest import mock   # perezoso: arrastra asyncio y cada hook importa este modulo
     with ExitStack() as pila:
         for obj, nombre, kw in [
             (registro, "build_adapters", {"return_value": [Guion()]}),
